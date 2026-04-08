@@ -42,24 +42,24 @@ export default function WhatWeDo() {
   }, [headingInView]);
 
   return (
-    <section id="about" className="py-24 sm:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-16 sm:py-24 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-16"
         >
           <h2
             ref={headingRef}
-            className={`heading-underline text-3xl sm:text-4xl font-bold text-gray-900 ${
+            className={`heading-underline text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 ${
               underlineActive ? "active" : ""
             }`}
           >
             What We Do
           </h2>
-          <p className="mt-6 text-gray-600 text-lg leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
             We provide flexible, person-centred 1:1 support focused on helping
             individuals rebuild everyday skills and independence, not ongoing care.
             Our approach is strength-based, goal-focused, and designed to reduce
@@ -67,7 +67,7 @@ export default function WhatWeDo() {
           </p>
         </motion.div>
 
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {cards.map((card, i) => (
             <motion.div
               key={card.title}
@@ -84,16 +84,16 @@ export default function WhatWeDo() {
                 scale: 1.02,
                 boxShadow: "0 20px 40px -12px rgba(5, 80, 0, 0.15)",
               }}
-              className="group bg-white border border-gray-100 rounded-2xl p-8 transition-shadow duration-300 cursor-default"
+              className="group bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 transition-shadow duration-300 cursor-default"
             >
               <motion.div
-                className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-5"
+                className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-4 sm:mb-5"
                 whileHover={{ rotate: 10, scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <card.icon className="w-6 h-6 text-brand" />
               </motion.div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                 {card.title}
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">

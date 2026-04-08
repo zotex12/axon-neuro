@@ -38,26 +38,26 @@ export default function Hero() {
         }}
       />
 
-      {/* Floating blobs */}
+      {/* Floating blobs — hidden on small screens, smaller on tablet */}
       <FloatingBlob
-        className="absolute -top-20 -right-20 w-[400px] h-[400px] opacity-10 animate-blob-drift"
+        className="hidden sm:block absolute -top-20 -right-20 w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] opacity-10 animate-blob-drift"
         delay={0}
       />
       <FloatingBlob
-        className="absolute top-1/3 -left-32 w-[350px] h-[350px] opacity-10 animate-blob-drift-2"
+        className="hidden sm:block absolute top-1/3 -left-32 w-[200px] lg:w-[350px] h-[200px] lg:h-[350px] opacity-10 animate-blob-drift-2"
         delay={0.3}
       />
       <FloatingBlob
-        className="absolute -bottom-16 right-1/4 w-[300px] h-[300px] opacity-10 animate-blob-drift-3"
+        className="hidden md:block absolute -bottom-16 right-1/4 w-[200px] lg:w-[300px] h-[200px] lg:h-[300px] opacity-10 animate-blob-drift-3"
         delay={0.6}
       />
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+      <div className="relative max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center pt-24 sm:pt-20 pb-12">
         <motion.h1
           initial={{ x: -60, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.3 }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight"
         >
           Rebuilding independence after{" "}
           <span className="text-brand">brain injury</span> and{" "}
@@ -68,7 +68,7 @@ export default function Hero() {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.7 }}
-          className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+          className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
         >
           Person-centred reablement support across England, helping you regain
           confidence, skills, and independence in daily living.
@@ -78,12 +78,12 @@ export default function Hero() {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 200, damping: 15, delay: 1.1 }}
-          className="mt-10"
+          className="mt-8 sm:mt-10"
         >
           <a
             href="#contact"
             onClick={handleGetInTouch}
-            className="inline-block bg-brand text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-brand-light transition-all duration-200 hover:shadow-lg hover:shadow-brand/20 hover:-translate-y-0.5"
+            className="inline-block w-full sm:w-auto bg-brand text-white px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-brand-light transition-all duration-200 hover:shadow-lg hover:shadow-brand/20 hover:-translate-y-0.5 min-h-[48px]"
           >
             Get in Touch
           </a>

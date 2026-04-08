@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const navLinks = [
@@ -37,6 +37,15 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setMobileOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileOpen(false);
@@ -52,21 +61,25 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm"
+        scrolled || mobileOpen
+          ? "bg-white/95 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 sm:h-24">
-          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+        <div className="flex items-center justify-between h-16 sm:h-20 md:h-24">
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            className="flex-shrink-0"
+          >
             <Image
               src="/logo.png"
               alt="Axon Neuro"
               width={220}
               height={56}
               priority
-              className="h-12 sm:h-14 w-auto"
+              className="h-10 sm:h-12 md:h-14 w-auto"
             />
           </a>
 
@@ -102,11 +115,11 @@ export default function Header() {
             </a>
           </nav>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button — 44px touch target */}
           <button
-            className="md:hidden p-2 text-gray-700"
+            className="md:hidden flex items-center justify-center w-11 h-11 -mr-1.5 text-gray-700 rounded-lg active:bg-gray-100 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {mobileOpen ? (
@@ -118,33 +131,38 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile nav */}
-        {mobileOpen && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden pb-4 space-y-3"
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="block text-sm font-medium text-gray-700 hover:text-brand py-2"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, "#contact")}
-              className="block bg-brand text-white px-5 py-2.5 rounded-lg text-sm font-semibold text-center"
+        {/* Mobile nav — slide down with AnimatePresence */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.nav
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="md:hidden overflow-hidden border-t border-gray-100"
             >
-              Make an Enquiry
-            </a>
-          </motion.nav>
-        )}
+              <div className="py-4 space-y-1">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="block text-base font-medium text-gray-700 hover:text-brand hover:bg-brand-50/50 py-3 px-3 rounded-lg transition-colors min-h-[44px] flex items-center"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <a
+                  href="#contact"
+                  onClick={(e) => handleNavClick(e, "#contact")}
+                  className="block bg-brand text-white px-5 py-3.5 rounded-lg text-base font-semibold text-center mt-3 min-h-[44px]"
+                >
+                  Make an Enquiry
+                </a>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );

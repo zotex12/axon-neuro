@@ -29,29 +29,29 @@ export default function MapPlaceholder() {
   }, [headingInView]);
 
   return (
-    <section className="py-24 sm:py-32 bg-brand-50/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-24 md:py-32 bg-brand-50/30">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
           <h2
             ref={headingRef}
-            className={`heading-underline text-3xl sm:text-4xl font-bold text-gray-900 ${
+            className={`heading-underline text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 ${
               underlineActive ? "active" : ""
             }`}
           >
             Find Local Support
           </h2>
-          <p className="mt-4 text-gray-600 text-lg max-w-xl mx-auto">
+          <p className="mt-4 text-gray-600 text-base sm:text-lg max-w-xl mx-auto">
             We&apos;re building a network of rehabilitation support workers across England.
           </p>
         </motion.div>
 
-        <div ref={ref} className="relative max-w-sm mx-auto">
+        <div ref={ref} className="relative max-w-[280px] sm:max-w-sm mx-auto">
           {/* Accurate UK mainland outline — Natural Earth 50m data */}
           <motion.svg
             viewBox="0 0 500 800"
@@ -71,7 +71,7 @@ export default function MapPlaceholder() {
               d={GB_PATH}
               fill="none"
               stroke="#055000"
-              strokeWidth="1.5"
+              strokeWidth="2"
               strokeLinejoin="round"
               strokeLinecap="round"
               variants={{
@@ -84,13 +84,13 @@ export default function MapPlaceholder() {
               }}
             />
 
-            {/* Location dots */}
+            {/* Location dots — larger touch-friendly radius on mobile via thicker stroke */}
             {locations.map((loc, i) => (
               <g key={loc.name}>
                 <motion.circle
                   cx={loc.cx}
                   cy={loc.cy}
-                  r="5"
+                  r="7"
                   fill="#055000"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={isInView ? { scale: 1, opacity: 1 } : {}}
@@ -104,10 +104,10 @@ export default function MapPlaceholder() {
                 <motion.circle
                   cx={loc.cx}
                   cy={loc.cy}
-                  r="5"
+                  r="7"
                   fill="none"
                   stroke="#055000"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                   initial={{ scale: 1, opacity: 0 }}
                   animate={
                     isInView
@@ -125,12 +125,12 @@ export default function MapPlaceholder() {
                   }}
                 />
                 <motion.text
-                  x={loc.cx + 10}
-                  y={loc.cy + 4}
+                  x={loc.cx + 14}
+                  y={loc.cy + 5}
                   fill="#055000"
-                  fontSize="12"
+                  fontSize="14"
                   fontFamily="Inter, system-ui, sans-serif"
-                  fontWeight="500"
+                  fontWeight="600"
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ delay: 3 + i * 0.2 }}
@@ -146,10 +146,10 @@ export default function MapPlaceholder() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ type: "spring", stiffness: 150, delay: 3.5 }}
-            className="absolute top-6 right-6"
+            className="absolute top-4 right-0 sm:top-6 sm:right-6"
           >
             <div className="relative">
-              <span className="inline-block bg-brand text-white text-xs font-semibold px-4 py-2 rounded-full">
+              <span className="inline-block bg-brand text-white text-[11px] sm:text-xs font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
                 Coming Soon
               </span>
               <span className="absolute inset-0 bg-brand rounded-full animate-ping opacity-20" />
