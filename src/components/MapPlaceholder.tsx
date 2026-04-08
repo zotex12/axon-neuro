@@ -3,12 +3,12 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
-// Natural Earth 50m projected coordinates — calibrated to viewBox 0 0 500 800
-// Birmingham ~52.48°N 1.89°W, Coventry ~52.41°N 1.51°W, Warwickshire ~52.3°N 1.57°W
+// Projected from lat/long using Natural Earth 50m bounds:
+// SVG x: 20-480 maps to lon 5.7°W-1.76°E, SVG y: 148-652 maps to lat 58.6°N-49.9°N
 const locations = [
-  { name: "Birmingham", cx: 195, cy: 465 },
-  { name: "Coventry", cx: 215, cy: 470 },
-  { name: "Warwickshire", cx: 208, cy: 455 },
+  { name: "Birmingham", cx: 254, cy: 502, labelX: -14, labelY: -2, anchor: "end" as const },
+  { name: "Coventry", cx: 278, cy: 507, labelX: 14, labelY: 4, anchor: "start" as const },
+  { name: "Warwickshire", cx: 274, cy: 514, labelX: 14, labelY: 18, anchor: "start" as const },
 ];
 
 // Accurate Great Britain mainland outline extracted from Natural Earth 50m GeoJSON
@@ -90,7 +90,7 @@ export default function MapPlaceholder() {
                 <motion.circle
                   cx={loc.cx}
                   cy={loc.cy}
-                  r="7"
+                  r="5"
                   fill="#055000"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={isInView ? { scale: 1, opacity: 1 } : {}}
@@ -104,7 +104,7 @@ export default function MapPlaceholder() {
                 <motion.circle
                   cx={loc.cx}
                   cy={loc.cy}
-                  r="7"
+                  r="5"
                   fill="none"
                   stroke="#055000"
                   strokeWidth="2"
@@ -125,12 +125,13 @@ export default function MapPlaceholder() {
                   }}
                 />
                 <motion.text
-                  x={loc.cx + 14}
-                  y={loc.cy + 5}
+                  x={loc.cx + loc.labelX}
+                  y={loc.cy + loc.labelY}
                   fill="#055000"
-                  fontSize="14"
+                  fontSize="11"
                   fontFamily="Inter, system-ui, sans-serif"
-                  fontWeight="600"
+                  fontWeight="500"
+                  textAnchor={loc.anchor}
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ delay: 3 + i * 0.2 }}
