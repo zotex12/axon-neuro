@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Axon Neuro — Neuro-Rehabilitation Reablement",
+  title: "Axon Neuro | Neuro-Rehabilitation Reablement",
   description:
-    "Person-centred reablement support across England — helping individuals rebuild independence after brain injury and neurological conditions.",
+    "Person-centred reablement support across England, helping individuals rebuild independence after brain injury and neurological conditions.",
   keywords: [
     "neuro rehabilitation",
     "reablement",

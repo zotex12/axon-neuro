@@ -61,7 +61,7 @@ export default function WhatWeDo() {
           </h2>
           <p className="mt-6 text-gray-600 text-lg leading-relaxed">
             We provide flexible, person-centred 1:1 support focused on helping
-            individuals rebuild everyday skills and independence — not ongoing care.
+            individuals rebuild everyday skills and independence, not ongoing care.
             Our approach is strength-based, goal-focused, and designed to reduce
             long-term reliance on support.
           </p>

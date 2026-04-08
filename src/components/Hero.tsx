@@ -70,7 +70,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.7 }}
           className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
         >
-          Person-centred reablement support across England — helping you regain
+          Person-centred reablement support across England, helping you regain
           confidence, skills, and independence in daily living.
         </motion.p>
 

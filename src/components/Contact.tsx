@@ -190,7 +190,7 @@ export default function Contact() {
               </h3>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Whether you&apos;re a case manager, healthcare professional, family
-                member, or individual seeking support — we&apos;re here to help.
+                member, or individual seeking support, we&apos;re here to help.
               </p>
             </div>
 
