@@ -58,15 +58,15 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center justify-between h-20 sm:h-24">
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
             <Image
               src="/logo.png"
               alt="Axon Neuro"
-              width={140}
-              height={45}
+              width={220}
+              height={56}
               priority
-              className="h-8 sm:h-10 w-auto"
+              className="h-12 sm:h-14 w-auto"
             />
           </a>
 

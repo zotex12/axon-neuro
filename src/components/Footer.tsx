@@ -18,9 +18,9 @@ export default function Footer() {
             <Image
               src="/logo.png"
               alt="Axon Neuro"
-              width={120}
-              height={40}
-              className="h-7 w-auto opacity-70"
+              width={220}
+              height={56}
+              className="h-14 w-auto opacity-70"
             />
           </div>
 
