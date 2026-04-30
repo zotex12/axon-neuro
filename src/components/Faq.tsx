@@ -7,42 +7,47 @@ const faqItems = [
   {
     question: "Are you a care provider?",
     answer:
-      "No. We are a reablement and neuro-rehabilitation support service. We do not provide personal care (washing, dressing, toileting) or administer medication. We focus on helping people rebuild independence in everyday life — cooking, routines, community access, cognitive strategies, and confidence.",
+      "No. We are a reablement and neuro-rehabilitation support service. We do not provide personal care such as washing, dressing, or toileting, and we do not administer medication. Our focus is on helping people rebuild independence in everyday life, including routines, cooking, community access, cognitive strategies, and confidence.",
   },
   {
     question: "Who do you support?",
     answer:
-      "Adults living with the effects of acquired brain injury, stroke, MS, Parkinson's, and other neurological conditions. Support is 1:1, in the person's home and community.",
-  },
-  {
-    question: "How is the service funded?",
-    answer:
-      "Through NHS Continuing Healthcare (CHC), local authorities, case managers handling litigation or insurance settlements, and private self-funders.",
+      "Adults living with the effects of acquired brain injury, stroke, MS, Parkinson's, and other neurological conditions. Support is delivered one-to-one in the person's home and community.",
   },
   {
     question: "Where do you operate?",
     answer:
-      "Across England. Coverage depends on local support worker availability — get in touch and we will confirm.",
+      "We are based in England and aim to offer support across the country as our network of rehabilitation support workers grows. Coverage in any given area depends on local availability — please get in touch and we will let you know what is possible.",
   },
   {
-    question: "How do you match staff to clients?",
+    question: "How do you work with other professionals?",
     answer:
-      "We match based on clinical need, geography, personality, and the goals set out in the support plan. All staff are enhanced-DBS checked, trained in the relevant areas (safeguarding, mental capacity, moving and handling, brain injury awareness), and supervised against agreed outcomes.",
+      "We work alongside care providers, occupational therapists, neuropsychologists, case managers, and other members of the wider professional team. Our role is to complement clinical and care input, not replace it, and we coordinate closely so that support stays joined up.",
   },
   {
-    question: "How do you measure progress?",
+    question: "Who funds the service?",
     answer:
-      "Daily session logs, monthly summaries, formal reviews every 12 weeks, and feedback from clients, families, and the wider MDT. Goals are SMART and tracked against independence levels rather than hours delivered.",
+      "Funding can come through a number of routes including NHS Continuing Healthcare, local authorities, case managers, and private clients. We are happy to discuss what is appropriate for each situation.",
   },
   {
-    question: "How do I make a referral?",
+    question: "How do you choose support workers?",
     answer:
-      "Use the contact form below, or email info@axonneuro.co.uk. We will arrange an initial conversation, review the client's needs, and propose a support plan with costings.",
+      "We match support workers to each client based on clinical need, location, personality, and the goals set out in the support plan. All staff are enhanced-DBS checked and trained against our internal staff standards before being placed with a client.",
   },
   {
-    question: "What does it cost?",
+    question: "How do you keep track of progress?",
     answer:
-      "£35 per hour standard rate. Unsociable hours (11pm–6am and UK bank holidays) are charged at +£17 per hour. Mileage is £0.60 per mile. Services are typically delivered as 6-month packages with a non-refundable deposit; additional ad-hoc hours are billed monthly in arrears.",
+      "Progress is captured through structured session notes, regular summaries, and formal reviews with the client, the family, and the wider professional team. Goals are set in plain language and tracked against meaningful outcomes rather than hours delivered.",
+  },
+  {
+    question: "How do I get in touch about a referral?",
+    answer:
+      "Use the contact form below, or email info@axonneuro.co.uk. We will arrange a short initial conversation, review the situation together, and explain what support might look like.",
+  },
+  {
+    question: "What happens after I get in touch?",
+    answer:
+      "We will have an initial conversation to understand the situation, review any existing reports or care plans you would like to share, and discuss what kind of support would be useful. From there we can outline next steps, including timing and costs, with no obligation.",
   },
 ];
 
