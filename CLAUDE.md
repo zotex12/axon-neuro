@@ -78,10 +78,10 @@ git push           # auto-deploys via Vercel
 - [x] Framer Motion scroll animations across sections
 - [x] Logo placed in `/public`
 - [x] Brand colours applied (white / #055000)
+- [x] FAQ section (8 items, accessible accordion, above contact form)
 
 ### In progress
 
-- [ ] FAQ section (above contact form)
 - [ ] Flatten GB map outline (remove perspective skew, keep all animations and dot logic)
 
 ### Backlog (public site)
