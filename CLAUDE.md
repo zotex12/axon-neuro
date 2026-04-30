@@ -79,10 +79,10 @@ git push           # auto-deploys via Vercel
 - [x] Logo placed in `/public`
 - [x] Brand colours applied (white / #055000)
 - [x] FAQ section (8 items, accessible accordion, above contact form)
+- [x] Flattened GB map outline (orthographic, no perspective skew)
 
 ### In progress
 
-- [ ] Flatten GB map outline (remove perspective skew, keep all animations and dot logic)
 
 ### Backlog (public site)
 
