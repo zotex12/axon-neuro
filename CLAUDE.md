@@ -78,7 +78,7 @@ git push           # auto-deploys via Vercel
 - [x] Framer Motion scroll animations across sections
 - [x] Logo placed in `/public`
 - [x] Brand colours applied (white / #055000)
-- [x] FAQ section (8 items, accessible accordion, above contact form)
+- [x] FAQ section (9 items, softened pre-launch tone, accessible accordion, above contact form)
 - [x] Flattened GB map outline (orthographic, no perspective skew)
 - [x] Favicon (App Router icon.png convention; legacy favicon.ico removed)
 
