@@ -37,7 +37,7 @@ Do not edit, create, or delete anything outside `C:\Users\sumlu\axon neuro`.
 
 ## Conventions
 
-- Section components under `components/sections/`, one section per file, composed in `app/page.tsx`.
+- Section components under `src/components/`, one section per file, composed in `src/app/page.tsx`.
 - Animations via Framer Motion `whileInView` + `viewport={{ once: true }}`.
 - Real `<button>`/`<a>` elements with proper `aria-*`. Keyboard support is non-negotiable.
 - Mobile-first; verify at 375 / 768 / 1280px.

@@ -38,8 +38,8 @@ Guidance for Claude Code (and any other AI coding agent) working in this repo.
 
 ## Conventions
 
-- Section components live under `components/sections/` (verify before creating new ones).
-- One section per file. Composed in `app/page.tsx`.
+- Section components live under `src/components/` (flat — no `sections/` subfolder).
+- One section per file. Composed in `src/app/page.tsx`.
 - Animations: Framer Motion, prefer `whileInView` with `viewport={{ once: true }}`, ~0.25–0.5s easing.
 - Accessibility: interactive elements must be real buttons/links with proper `aria-*`. Keyboard support is non-negotiable.
 - No new dependencies without justification.
