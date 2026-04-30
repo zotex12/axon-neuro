@@ -80,7 +80,7 @@ git push           # auto-deploys via Vercel
 - [x] Brand colours applied (white / #055000)
 - [x] FAQ section (8 items, accessible accordion, above contact form)
 - [x] Flattened GB map outline (orthographic, no perspective skew)
-- [x] Favicon (App Router icon.png convention)
+- [x] Favicon (App Router icon.png convention; legacy favicon.ico removed)
 
 ### In progress
 
