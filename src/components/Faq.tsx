@@ -1,0 +1,147 @@
+"use client";
+
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+
+const faqItems = [
+  {
+    question: "Are you a care provider?",
+    answer:
+      "No. We are a reablement and neuro-rehabilitation support service. We do not provide personal care (washing, dressing, toileting) or administer medication. We focus on helping people rebuild independence in everyday life — cooking, routines, community access, cognitive strategies, and confidence.",
+  },
+  {
+    question: "Who do you support?",
+    answer:
+      "Adults living with the effects of acquired brain injury, stroke, MS, Parkinson's, and other neurological conditions. Support is 1:1, in the person's home and community.",
+  },
+  {
+    question: "How is the service funded?",
+    answer:
+      "Through NHS Continuing Healthcare (CHC), local authorities, case managers handling litigation or insurance settlements, and private self-funders.",
+  },
+  {
+    question: "Where do you operate?",
+    answer:
+      "Across England. Coverage depends on local support worker availability — get in touch and we will confirm.",
+  },
+  {
+    question: "How do you match staff to clients?",
+    answer:
+      "We match based on clinical need, geography, personality, and the goals set out in the support plan. All staff are enhanced-DBS checked, trained in the relevant areas (safeguarding, mental capacity, moving and handling, brain injury awareness), and supervised against agreed outcomes.",
+  },
+  {
+    question: "How do you measure progress?",
+    answer:
+      "Daily session logs, monthly summaries, formal reviews every 12 weeks, and feedback from clients, families, and the wider MDT. Goals are SMART and tracked against independence levels rather than hours delivered.",
+  },
+  {
+    question: "How do I make a referral?",
+    answer:
+      "Use the contact form below, or email info@axonneuro.co.uk. We will arrange an initial conversation, review the client's needs, and propose a support plan with costings.",
+  },
+  {
+    question: "What does it cost?",
+    answer:
+      "£35 per hour standard rate. Unsociable hours (11pm–6am and UK bank holidays) are charged at +£17 per hour. Mileage is £0.60 per mile. Services are typically delivered as 6-month packages with a non-refundable deposit; additional ad-hoc hours are billed monthly in arrears.",
+  },
+];
+
+export default function Faq() {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const headingInView = useInView(headingRef, { once: true, margin: "-50px" });
+  const [underlineActive, setUnderlineActive] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  useEffect(() => {
+    if (headingInView) {
+      const timer = setTimeout(() => setUnderlineActive(true), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [headingInView]);
+
+  return (
+    <section className="py-16 sm:py-24 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-16"
+        >
+          <h2
+            ref={headingRef}
+            className={`heading-underline text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 ${
+              underlineActive ? "active" : ""
+            }`}
+          >
+            Frequently asked questions
+          </h2>
+          <p className="mt-4 sm:mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
+            Straight answers about how we work, who we support, and how to refer.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          className="max-w-4xl mx-auto"
+        >
+          {faqItems.map((item, index) => {
+            const isOpen = openIndex === index;
+            const answerId = `faq-answer-${index}`;
+            const questionId = `faq-question-${index}`;
+
+            return (
+              <div key={item.question} className="border-b border-gray-200">
+                <button
+                  id={questionId}
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={answerId}
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="group flex w-full items-center justify-between gap-4 py-5 sm:py-6 text-left font-semibold text-gray-900 transition-colors duration-200 hover:text-brand focus:outline-none focus-visible:text-brand"
+                >
+                  <span className="text-base sm:text-lg leading-snug">{item.question}</span>
+                  <span
+                    aria-hidden="true"
+                    className="relative flex h-6 w-6 flex-shrink-0 items-center justify-center text-brand"
+                  >
+                    <span className="absolute h-[2px] w-4 rounded-full bg-current" />
+                    <motion.span
+                      animate={{
+                        opacity: isOpen ? 0 : 1,
+                        rotate: isOpen ? 45 : 0,
+                      }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="absolute h-4 w-[2px] rounded-full bg-current"
+                    />
+                  </span>
+                </button>
+                <motion.div
+                  id={answerId}
+                  role="region"
+                  aria-labelledby={questionId}
+                  aria-hidden={!isOpen}
+                  initial={false}
+                  animate={{
+                    height: isOpen ? "auto" : 0,
+                    opacity: isOpen ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className="overflow-hidden"
+                >
+                  <p className="pb-5 sm:pb-6 pr-10 text-sm sm:text-base leading-relaxed text-gray-600">
+                    {item.answer}
+                  </p>
+                </motion.div>
+              </div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
+  );
+}

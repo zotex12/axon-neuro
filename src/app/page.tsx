@@ -9,6 +9,7 @@ import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeSupport from "@/components/WhoWeSupport";
 import HowItWorks from "@/components/HowItWorks";
 import MapPlaceholder from "@/components/MapPlaceholder";
+import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -28,6 +29,7 @@ export default function Home() {
             <WhoWeSupport />
             <HowItWorks />
             <MapPlaceholder />
+            <Faq />
             <Contact />
           </main>
           <Footer />
